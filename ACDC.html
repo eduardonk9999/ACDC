@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulação AC/DC</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          text-align: center;
+          margin: 50px;
+        }
+    
+        #ac-wave, #dc-wave {
+          width: 500px;
+          height: 150px;
+          border: 1px solid #ccc;
+          margin: 20px auto;
+          position: relative;
+          overflow: hidden;
+        }
+    
+        .wave {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 50%;
+          background-color: #3498db;
+          opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simulação AC/DC</h1>
+
+    <h2>Corrente Alternada (AC)</h2>
+    <div id="ac-wave">
+        <div class="wave" id="ac-wave-1"></div>
+        <div class="wave" id="ac-wave-2"></div>
+        <div class="wave" id="ac-wave-3"></div>
+    </div>
+
+    <h2>Corrente Contínua (DC)</h2>
+    <div id="dc-wave">
+        <div class="wave"></div>
+    </div>
+
+
+    <script>
+        function simularAC(){
+            const acWaves = document.querySelectorAll('.wave');
+            const duration = 2000; // Tempo de um ciclo em milessegundos
+
+            setInterval(() => {
+                acWaves.forEach((wave, index) => {
+                    console.log(wave);
+                    console.log(index);
+                })
+            }, duration);
+        }
+
+        function simularDC() {
+            const dcWave = document.querySelector("#dc-wave .wave");
+            dcWave.style.animation = 'wave-animation 2000ms linear infinite';
+        }
+
+
+        simularAC();
+        simularDC();
+    </script>
+
+    <style>
+        @keyframes wave-animation {
+            0% {
+                transform: scaleY(1);
+            }
+            50% {
+                transform: scaleY(0.2);
+            }
+            100% {
+                transform: scaleY(1);
+            }
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACDC</title>
+    <style>
+        body{
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            margin: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Escolha a corrente para a transmissão de Energia</h1>
+    <label for="corrente">Selecione o Tipo de Corrente:</label>
+    <select id="corrente" onchange="mostrarResultado()">
+        <option value="continua">Corrente Continua</option>
+        <option value="alternada">Corrente Alternada</option>
+    </select>
+
+    <div id="resultado"></div>
+    
+    <script>
+        function mostrarResultado() {
+            const tipoCorrente = document.getElementById("corrente").value;
+            const resultadoElement = document.getElementById("resultado");
+
+            if (tipoCorrente === "continua") {
+                resultadoElement.innerHTML = "A transmissão de energia com Corrente Contínua pode ser menos eficiente em longas distâncias.";
+            } else {
+                resultadoElement.innerHTML = "A transmissão de energia com Corrente Alternada é eficiente em longas distâncias, graças à capacidade de usar transformadores.";
+            }
+        }
+    </script>
+</body>
+</html>
